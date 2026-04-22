@@ -11,7 +11,7 @@
 </head>
 <body>
     <header></header>
-    <main>
+    <main class="dashboard">
         <aside class="sidebar">
             <button class="sidebar_button">
                 <span></span>
@@ -20,7 +20,19 @@
             </button>
             <div class="sidebar_filters">
                 <h2>Period</h2>
-                <select><option>April</option></select>
+                <select>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option selected>April</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
                 <select><option>2026</option></select>
             </div>
             <nav class="sidebar_nav">
@@ -28,6 +40,91 @@
                 <a href="#">Employees</a>
             </nav>
         </aside>
+        <div class="projects">
+            <div class="nav_project">
+                <h1>Projects</h1>
+                <div class="projects_buttons">
+                    <button class="add_project">Add Project</button>
+                    <button class="seed_data">Seed Data</button>
+                </div>
+            </div>
+            <section class="projects_search_section">
+                <div class="projects_search_panel projects_search_header">
+                    <div class="cell">Company Name 
+                        <span>⇅</span>
+                    </div>
+                    <div class="cell">Project Name 
+                        <span>⇅</span>
+                    </div>
+                    <div class="cell">Budget 
+                        <span>⇅</span>
+                    </div>
+                    <div class="cell">Employee Capacity 
+                        <span>⇅</span>
+                    </div>
+                    <div class="cell">Employees</div>
+                    <div class="cell">Estimated Income 
+                        <span>⇅</span>
+                    </div>
+                    <div class="cell">Actions</div>
+                </div>
+                <p class="total_income">
+                    Total Estimated Income: <span>$0.00</span>
+                </p>
+            </section>
+        </div>
+        <div class="employees">
+            <div class="nav_employee">
+                <h1>Employees</h1>
+                <div class="employees_buttons">
+                <button class="add_employee"> Add Employee</button>
+                </div>
+            </div>
+
+            <section class="employees_search_section">
+                <div class="employees_search_panel employees_search_header">
+                <div class="cell">Name 
+                    <span class="cell_icons">
+                        <span>⇅</span>
+                        <span>⌕</span>
+                    </span>
+                </div>
+                <div class="cell">Surname 
+                    <span class="cell_icons">
+                        <span>⇅</span>
+                        <span>⌕</span>
+                    </span>
+                </div>
+                <div class="cell">Age 
+                    <span>⇅</span>
+                </div>
+                <div class="cell">Position 
+                    <span class="cell_icons">
+                        <span>⇅</span>
+                        <span>⌕</span>
+                    </span>
+                </div>
+                <div class="cell">Salary 
+                    <span>⇅</span>
+                </div>
+                <div class="cell">Estimated Payment 
+                    <span>⇅</span>
+                </div>
+                <div class="cell">Project
+                    <span class="cell_icons">
+                        <span>⇅</span>
+                        <span>⌕</span>
+                    </span>
+                </div>
+                <div class="cell">Projected Income 
+                    <span>⇅</span>
+                </div>
+                <div class="cell">Actions</div>
+                </div>
+            </section>
+            </div>
+
+        </div>
     </main>
 </body>
 </html>

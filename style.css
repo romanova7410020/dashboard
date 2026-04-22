@@ -51,6 +51,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.dashboard{
+    display: flex;
+}
 
 body{
     max-width: 1820px;
@@ -120,5 +123,167 @@ h2{
 .sidebar_nav a:hover{
     background-color: #013701;
 }
+.projects{
+    flex: 1;
+    background-color: #faf4eb;
+}
+.nav_project{
+    margin-left: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+h1{
+    color: #012d01;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.projects_buttons button{
+    background-color: #012d01;
+    color: #C5B398;
+    height: 50px;
+    text-align: center;
+    width: 120px;
+    font-size: 20px;
+    
+}
+.projects_buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.projects_buttons button:hover{
+    background-color: #013701;
+}
+.projects_search_section {
+  margin-top: 70px;
+}
+
+.projects_search_header {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 1fr 1.4fr 1fr 1.4fr 0.8fr;
+  align-items: center;
+}
+
+.projects_search_panel {
+  min-height: 42px;
+  padding: 0 12px;
+  background-color: #012d01;
+  color: #E3D6C1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.projects_search_panel--row {
+  min-height: 50px;
+  padding: 0 12px;
+  background-color: #fff;
+  border-bottom: 1px solid #d8dde3;
+}
+
+.projects_search_panel .cell {
+  padding: 12px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.projects_search_panel  .cell:hover{
+    background-color: #013701;
+}
+
+.projects_search_panel .cell span {
+  margin-left: 4px;
+  font-size: 16px;
+  color: #E3D6C1;
+}
+
+.total_income {
+  margin-top: 50px;
+  margin-left: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #012d01;
+}
+
+.employees {
+  width: 100%;
+  background-color: #faf4eb;
+  display: none;
+}
+
+.nav_employee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0 20px 0 50px;
+}
+
+.nav_employee h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #012d01;
+  position: relative;
+}
+
+
+.employees_buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.add_employee {
+  height: 50px;
+  padding: 0 18px;
+  background-color: #012d01;
+  color: #C5B398;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.add_employee:hover {
+  background-color: #013701;
+}
+
+.employees_search_section {
+  margin-top: 70px;
+}
+
+.employees_search_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr 1fr 0.9fr 1.4fr 1fr 1.4fr 0.8fr;
+  align-items: center;
+}
+
+.employees_search_panel {
+  min-height: 42px;
+  padding: 0 12px;
+  background-color: #012d01;
+  color: #E3D6C1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.employees_search_panel .cell {
+  padding: 12px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.employees_search_panel .cell:hover {
+  background-color: #013701;
+}
+
+.employees_search_panel .cell span {
+  margin-left: 4px;
+  font-size: 16px;
+  color: #E3D6C1;
+}
+
 
 
