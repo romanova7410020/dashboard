@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('projectForm');
         const submitBtn = document.getElementById('submitBtn');
         const formErrors = document.getElementById('formErrors');
+        const projectsRows = document.getElementById('projectsRows');
+        const totalIncomeValue = document.getElementById('totalIncomeValue');
 
         const fields = {
             projectName: document.getElementById('projectName'),
@@ -135,12 +137,24 @@ document.addEventListener('DOMContentLoaded', () => {
             !validateCapacity();
             submitBtn.disabled = !(allFieldsFilled() && isValid);
         }
+        function clearValidation() {
+            Object.values(fields).forEach(field => {
+                field.classList.remove('invalid', 'valid');
 
-        Object.values(fields).forEach(field => {
+                const errorElement = field.nextElementSibling;
+                if (errorElement) {
+                errorElement.textContent = '';
+                }
+            });
+
+            formErrors.innerHTML = '';
+            }
+
+            Object.values(fields).forEach(field => {
             field.addEventListener('input', updateSubmitState);
             field.addEventListener('blur', () => {
-            validateField(field);
-            updateSubmitState();
+                validateField(field);
+                updateSubmitState();
             });
         });
 
@@ -151,6 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSubmitState();
             return;
             }
+            const newProject = createProjectData();
+            projects.push(newProject);
+            saveProjectToLocalStorage();
+            renderProjects();
             closePopup();
         });
         function closePopup() {
@@ -167,6 +185,74 @@ document.addEventListener('DOMContentLoaded', () => {
             closePopup();
         });
         updateSubmitState();
+
+       // сохранение и рендер projects
+        const STORAGE_KEY = 'projectsData';
+        const projects = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        function saveProjectToLocalStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+        }
+
+        function createProjectData(){
+            return {
+                companyName: fields.companyName.value.trim(),
+                projectName: fields.projectName.value.trim(),
+                budget: Number(fields.budget.value.trim()),
+                capacity: Number(fields.capacity.value.trim()),
+                employees: 0,
+                estimatedIncome: 0
+            }
+        }
+
+        function updateTotalIncome() {
+            const total = projects.reduce((sum, project) => {
+                return sum + project.estimatedIncome;
+            }, 0);
+
+            totalIncomeValue.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function renderProjects() {
+            projectsRows.innerHTML = '';
+
+             projects.forEach((project, index) => {
+                const row = document.createElement('div');
+                row.className = 'projects_search_panel projects_search_panel--row';
+
+                row.innerHTML = `
+                    <div class="cell">${project.companyName}</div>
+                    <div class="cell">${project.projectName}</div>
+                    <div class="cell">$${project.budget.toFixed(2)}</div>
+                    <div class="cell">${project.capacity}</div>
+                    <div class="cell">${project.employees}</div>
+                    <div class="cell">$${project.estimatedIncome.toFixed(2)}</div>
+                    <div class="cell">
+                    <button class="delete_project" data-index="${index}">Delete</button>
+                    </div>
+                `;
+
+                projectsRows.appendChild(row);
+                });
+
+                updateTotalIncome();
+        }
+
+        projectsRows.addEventListener('click', event => {
+            const deleteButton = event.target.closest('.delete_project');
+            if (!deleteButton) return;
+
+            const index = Number(deleteButton.dataset.index);
+            projects.splice(index, 1);
+            saveProjectToLocalStorage();
+            renderProjects();
+        });
+
+            renderProjects();
+            updateSubmitState();
+
+        
+
+
 
 })
 
