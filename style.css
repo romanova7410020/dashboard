@@ -195,7 +195,7 @@ h1{
   align-items: center;
 }
 
-.projects_search_panel {
+.projects_search_panel  {
   min-height: 42px;
   padding: 0 12px;
   background-color: #012d01;
@@ -217,7 +217,7 @@ h1{
   font-size: 16px;
   cursor: pointer;
 }
-.projects_search_panel  .cell:hover{
+.projects_search_header .cell:hover{
     background-color: #013701;
 }
 
@@ -294,6 +294,12 @@ h1{
   margin-left: 50px;
   margin-right: 20px;
 }
+.employees_search_panel--row {
+  min-height: 50px;
+  padding: 0 12px;
+  background-color: #fff;
+  border-bottom: 1px solid #d8dde3;
+}
 
 .employees_search_panel .cell {
   padding: 12px 10px;
@@ -312,14 +318,14 @@ h1{
   color: #E3D6C1;
 }
 
-.popup {
+.popup, .popup_employees {
   position: fixed;
   inset: 0;
   z-index: 2000;
   pointer-events: none;
 }
 
-.popup_overlay {
+.popup_overlay, .employeePopupOverlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.18);
@@ -327,7 +333,7 @@ h1{
   transition: opacity 0.3s ease;
 }
 
-.popup_content {
+.popup_content, .popup_employeescontent {
   position: absolute;
   top: 0;
   right: 0;
@@ -342,19 +348,21 @@ h1{
   overflow-y: auto;
 }
 
-.popup.show {
+.popup.show, .popup_employees.show{
   pointer-events: auto;
 }
 
-.popup.show .popup_overlay {
+.popup.show .popup_overlay,
+.popup_employees.show  .employeePopupOverlay{
   opacity: 1;
 }
 
-.popup.show .popup_content {
+.popup.show .popup_content,
+.popup_employees.show  .popup_employeescontent {
   transform: translateX(0);
 }
 
-.popup_content h2 {
+.popup_content h2, .popup_employeescontent h2 {
   text-align: left;
   font-size: 28px;
   font-weight: 700;
@@ -364,10 +372,10 @@ h1{
   border-bottom: 2px solid #012d01;
 }
 
-.project_form {
+.project_form, .employees_form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
 }
 
 .form_group {
@@ -464,36 +472,85 @@ h1{
   margin: 4px 0;
 }
 
-#projectsRows {
+#projectsRows, .employees_row {
   display: flex;
   flex-direction: column;
+
 }
 
-.projects_search_panel--row {
+.projects_search_panel--row{
   display: grid;
   grid-template-columns: 1.4fr 1.4fr 1fr 1.4fr 1fr 1.4fr 0.8fr;
   align-items: center;
   min-height: 50px;
   padding: 0 12px;
-  background-color: rgb(227, 220, 206)
+  background-color: rgb(227, 220, 206);
   border-bottom: 1px solid #d8dde3;
   margin-left: 50px;
   margin-right: 20px;
   color: #012d01;
   font-size: 15px;
 }
-#projectsRows .cell:hover{
+.employees_row{
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr 1fr 1fr 1.2fr 1fr 1.2fr 1fr;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 12px;
+  background-color: rgb(227, 220, 206);
+  border-bottom: 1px solid #d8dde3;
+  margin-left: 50px;
+  margin-right: 20px;
+  color: #012d01;
+  font-size: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+.projects_search_panel--row:hover,
+.employees_row:hover {
   background-color: #C5B398;
   border-radius: 4px;
+  cursor: pointer;
 }
-.delete_project {
-  height: 32px;
+.delete_project, .delete_employee {
+  height: 30px;
   padding: 0 10px;
   border: none;
   border-radius: 4px;
-  background-color: #b33a3a;
-  color: #fff;
+  background-color: #6a2020;
+  color: #C5B398;
   cursor: pointer;
+}
+.cell .actions_cell{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.availability_employee{
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1c4007;
+  color: #C5B398;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.assign_employee{
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #100c55;
+  color: #C5B398;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.popup_actions{
+display: flex;
+justify-content: end;
+gap: 10px;
 }
 
 

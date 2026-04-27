@@ -75,7 +75,7 @@
                 </div>
                 <div id="projectsRows"></div>
                 <p class="total_income">
-                    Total Estimated Income: <span>$0.00</span>
+                    Total Estimated Income: <span id="totalIncomeValue">$0.00</span>
                 </p>
             </section>
         </div>
@@ -86,7 +86,6 @@
                 <button class="add_employee"> Add Employee</button>
                 </div>
             </div>
-
             <section class="employees_search_section">
                 <div class="employees_search_panel employees_search_header">
                 <div class="cell">Name 
@@ -127,14 +126,13 @@
                 </div>
                 <div class="cell">Actions</div>
                 </div>
+                <div id="employeesRows"></div>
             </section>
             </div>
-
         </div>
     </main>
-    <div class="popup" id="popup" aria-hidden="true">
+    <div class="popup" id="popup">
   <div class="popup_overlay" id="popupOverlay"></div>
-
   <aside class="popup_content" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
     <h2 id="popupTitle">Add New Project</h2>
     <form class="project_form" id="projectForm" novalidate>
@@ -166,6 +164,54 @@
     </form>
   </aside>
 </div>
+<div class="popup_employees" id="popup_employees">
+  <div class="popup_overlay" id="employeePopupOverlay"></div>
+  <aside class="popup_employeescontent"role="dialog" aria-modal="true"
+    aria-labelledby="popup_employeesTitle">
+    <h2 id="popup_employeesTitle">Add New Employee</h2>
+    <form class="employees_form" id="employeeForm" novalidate>
+      <div class="form_group">
+        <label for="employeeName">Name: <span>*</span></label>
+        <input type="text" id="employeeName" name="employeeName" />
+        <small class="error_message"></small>
+      </div>
+      <div class="form_group">
+        <label for="employeeSurname">Surname: <span>*</span></label>
+        <input type="text" id="employeeSurname" name="employeeSurname" />
+        <small class="error_message"></small>
+      </div>
+      <div class="form_group">
+        <label for="employeeBirthDate">Date of Birth: <span>*</span></label>
+        <input type="date" id="employeeBirthDate" name="employeeBirthDate" />
+        <small class="error_message"></small>
+      </div>
+      <div class="form_group">
+        <label for="employeePosition">Position: <span>*</span></label>
+        <select id="employeePosition" name="employeePosition">
+          <option value="">Select position</option>
+          <option value="Manager">Manager</option>
+          <option value="Developer">Developer</option>
+          <option value="Designer">Designer</option>
+          <option value="QA Engineer">QA Engineer</option>
+          <option value="HR">HR</option>
+        </select>
+        <small class="error_message"></small>
+      </div>
+      <div class="form_group">
+        <label for="employeeSalary">Salary: <span>*</span></label>
+        <input type="text" id="employeeSalary" name="employeeSalary" placeholder="1000.00" />
+        <small class="error_message"></small>
+      </div>
+      <div id="employeeFormErrors" class="form_errors"></div>
+      <div class="popup_actions">
+        <button type="submit" class="submit_btn" id="employeeSubmitBtn" disabled>Add Employee</button>
+        <button type="button" class="cancel_btn" id="employeeCancelBtn">Cancel</button>
+      </div>
+    </form>
+  </aside>
+</div>
 </body>
+<script src="./storage.js"></script>
 <script src="./script.js"></script>
+<script src="./employees.js"></script>
 </html>
